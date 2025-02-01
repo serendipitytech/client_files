@@ -7,22 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <!-- Sidebar -->
     <div class="sidebar">
-        <h2>Menu</h2>
-        <a href="index.php">Home</a>
-        <a href="admin_login.php">Admin Login</a>
-        <a href="login.php">User Login</a>
-        <?php if (isset($_SESSION["admin_logged_in"])): ?>
-            <a href="admin.php">Admin Panel</a>
-            <a href="logout.php" style="background-color: red;">Logout</a>
-        <?php endif; ?>
+        <div class="menu">
+            <h2>Navigation</h2>
+            <a href="admin_login.php" class="btn">Admin Login</a>
+            <a href="login.php" class="btn">User Login</a>
+        </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <h1>Welcome to the File Management System</h1>
-        <p>Please select an option from the menu.</p>
+        <p>Select an option from the sidebar to proceed.</p>
     </div>
+
 </body>
 </html>
