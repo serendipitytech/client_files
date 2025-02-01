@@ -21,24 +21,21 @@ body {
     top: 0;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Ensures buttons are centered */
+    justify-content: space-between; /* Space between menu buttons and logout */
 }
 
-/* Sidebar Menu (Keeps buttons at the top) */
+/* Sidebar Menu */
 .sidebar .menu {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-bottom: 20px;
-}
-
-.sidebar h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
+    width: 100%;
+    gap: 15px; /* Adds uniform spacing between all buttons */
 }
 
 /* Sidebar Buttons */
 .sidebar .btn, .sidebar a {
-    width: 100%;
+    width: 90%; /* Ensures consistent button width */
     padding: 12px;
     background-color: #007bff;
     color: white;
@@ -52,21 +49,18 @@ body {
     transition: background 0.3s;
 }
 
+/* Button Hover Effect */
 .sidebar .btn:hover, .sidebar a:hover {
     background-color: #0056b3;
 }
-
 
 /* Logout Button */
 .sidebar .logout-btn {
     margin-top: auto; /* Pushes it to the bottom */
     background-color: red;
+    width: 90%; /* Matches other buttons */
     padding: 12px;
-}
-
-/* Button Hover Effect */
-.sidebar .btn:hover, .sidebar a:hover {
-    background-color: #0056b3;
+    margin-bottom: 20px; /* Adds space above the bottom */
 }
 
 .sidebar .logout-btn:hover {
@@ -103,6 +97,8 @@ button {
     color: white;
     cursor: pointer;
     transition: background 0.3s;
+    padding: 12px;
+    width: 100%;
 }
 
 button:hover {
