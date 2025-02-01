@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/stadmin1/clientfiles.serendipityhosting.net
+    - /bin/cp -r * $DEPLOYPATH
