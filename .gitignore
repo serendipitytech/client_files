@@ -1,0 +1,14 @@
+# Exclude the files folder
+files/
+
+# Exclude the clients.json file
+clients.json
+
+# Other common exclusions
+*.log
+*.tmp
+*.bak
+.DS_Store
+node_modules/
+vendor/
+.env

@@ -12,15 +12,17 @@
     <div class="sidebar">
         <div class="menu">
             <h2>Navigation</h2>
-            <a href="admin_login.php" class="btn">Admin Login</a>
-            <a href="login.php" class="btn">User Login</a>
+            <a href="auth.php?type=admin" class="btn">Admin Login</a>
+            <a href="auth.php?type=client" class="btn">Client Login</a>
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <h1>Welcome to the File Management System</h1>
-        <p>Select an option from the sidebar to proceed.</p>
+        <p>This portal is proivded for our clients to upload any files needed for our project.</p>
+        <p>This way we can be sure we have the latest version of all files and that no files are missing.</p>
+        <p>You should have received a client code that you can use to login on the Client Login page. If you don't have that, please contact your project lead.</p>
     </div>
 
 </body>

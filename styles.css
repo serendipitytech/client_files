@@ -1,4 +1,6 @@
+/* ============================= */
 /* General Styling */
+/* ============================= */
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
@@ -9,7 +11,9 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar Layout */
+/* ============================= */
+/* Sidebar Styling */
+/* ============================= */
 .sidebar {
     width: 250px;
     background-color: #343a40;
@@ -21,21 +25,20 @@ body {
     top: 0;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Ensures buttons are centered */
-    justify-content: space-between; /* Space between menu buttons and logout */
+    align-items: center;
 }
 
-/* Sidebar Menu */
 .sidebar .menu {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 15px; /* Adds uniform spacing between all buttons */
+    gap: 15px;
+    align-items: center;
 }
 
 /* Sidebar Buttons */
-.sidebar .btn, .sidebar a {
-    width: 90%; /* Ensures consistent button width */
+.sidebar .btn, .sidebar a, button {
+    width: 100%;
     padding: 12px;
     background-color: #007bff;
     color: white;
@@ -44,42 +47,37 @@ body {
     cursor: pointer;
     border: none;
     font-size: 16px;
-    display: block;
     text-decoration: none;
     transition: background 0.3s;
+    display: block;
 }
 
-/* Button Hover Effect */
-.sidebar .btn:hover, .sidebar a:hover {
+.sidebar .btn:hover, .sidebar a:hover, button:hover {
     background-color: #0056b3;
 }
 
 /* Logout Button */
 .sidebar .logout-btn {
-    margin-top: auto; /* Pushes it to the bottom */
-    background-color: red;
-    width: 90%; /* Matches other buttons */
-    padding: 12px;
-    margin-bottom: 20px; /* Adds space above the bottom */
+    background-color: #dc3545;
 }
 
 .sidebar .logout-btn:hover {
-    background-color: darkred;
+    background-color: #c82333;
 }
 
-/* Main Content */
+/* ============================= */
+/* Main Content Layout */
+/* ============================= */
 .main-content {
-    margin-left: 260px;
-    flex-grow: 1;
-    max-width: 800px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 50px auto;
+    margin-left: 270px;
+    padding: 20px 40px;
+    flex: 1;
+    text-align: center; /* Center the content within the main content area */
 }
 
+/* ============================= */
 /* Forms */
+/* ============================= */
 form {
     display: flex;
     flex-direction: column;
@@ -92,24 +90,26 @@ input, select, button {
     border: 1px solid #ddd;
 }
 
-button {
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-    padding: 12px;
-    width: 100%;
+.form-container {
+    width: 300px; /* Set the width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add some padding */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: #f9f9f9; /* Add a background color */
 }
 
-button:hover {
-    background-color: #0056b3;
+.error {
+    color: red;
+    margin-top: 10px;
 }
 
+/* ============================= */
 /* Tables */
+/* ============================= */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
 th, td {
@@ -123,7 +123,115 @@ th {
     color: white;
 }
 
-/* Modal Styles */
+table th, table td {
+    white-space: nowrap;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ============================= */
+/* Table Actions */
+/* ============================= */
+.table-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.table-actions a, .table-actions button, .table-actions .btn-action {
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.table-actions a:hover, .table-actions button:hover, .table-actions .btn-action:hover {
+    background-color: #e9e9e9;
+}
+
+.table-actions .btn-action i {
+    font-size: 16px;
+}
+
+/* ============================= */
+/* Action Buttons */
+/* ============================= */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Edit Button */
+.edit-btn {
+    color: #007bff;
+}
+
+.edit-btn:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: scale(1.1);
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Inline Delete Button */
+.delete-btn-inline {
+    color: red;
+    cursor: pointer;
+    font-size: 20px;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.icon-delete-btn {
+    background: none !important;
+    border: none !important;
+    color: red !important;
+    font-size: 20px !important;
+    cursor: pointer;
+    padding: 5px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-delete-btn i {
+    color: red !important;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.icon-delete-btn:hover i {
+    color: darkred !important;
+    transform: scale(1.2);
+}
+
+/* ============================= */
+/* Modal Styling */
+/* ============================= */
 .modal {
     display: none;
     position: fixed;
@@ -134,8 +242,10 @@ th {
     background: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
+/* Centered Modal Box */
 .modal-content {
     background: white;
     padding: 20px;
@@ -143,12 +253,113 @@ th {
     width: 400px;
     text-align: center;
     position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Close Button */
 .close {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 20px;
     cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* ============================= */
+/* Animations */
+/* ============================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Preview Overlay */
+.preview-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.preview-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.preview-media {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 5px;
+}
+
+.close-preview {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
+.preview-icon {
+    color: #007bff; /* Blue color */
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.preview-icon:hover {
+    color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.2);
+}
+
+
+.help-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.help-content {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
