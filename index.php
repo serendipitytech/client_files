@@ -14,7 +14,8 @@ $page = $_GET['page'] ?? 'auth';
 $pageTitle = "Welcome";
 
 // Routing based on user role and requested page
-if ($isAdmin && ($page === 'auth' || $page === 'client_dashboard')) {
+// Admins can view client_dashboard (for previewing client views)
+if ($isAdmin && $page === 'auth') {
     header("Location: index.php?page=admin_dashboard");
     exit();
 } elseif ($isClient && ($page === 'auth' || $page === 'admin_dashboard')) {
@@ -35,7 +36,8 @@ switch ($page) {
         break;
 
     case 'client_dashboard':
-        if (!$isClient) {
+        // Allow admins OR clients to view client dashboard
+        if (!$isClient && !$isAdmin) {
             header("Location: index.php?page=auth");
             exit();
         }

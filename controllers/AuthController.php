@@ -46,18 +46,12 @@ if (isset($_GET['action']) && $_GET['action'] === "logout") {
 }
 if (isset($_GET['auto_login']) && $_GET['auto_login'] === "true" && isset($_GET['client'])) {
     if (SessionManager::isAdminLoggedIn()) {
-        // Check if the session is already set before redirecting
-        if (!isset($_SESSION['client_folder']) || $_SESSION['client_folder'] !== $_GET['client']) {
-            $_SESSION['client_folder'] = $_GET['client'];
-            header("Location: ../index.php?page=client_dashboard");
-            exit();
-        }
+        $_SESSION['client_folder'] = $_GET['client'];
+        header("Location: ../index.php?page=client_dashboard");
+        exit();
     } else {
-        // Avoid unnecessary redirects if already on auth page
-        if ($_GET['page'] !== 'auth') {
-            header("Location: ../index.php?page=auth&type=admin");
-            exit();
-        }
+        header("Location: ../index.php?page=auth&type=admin");
+        exit();
     }
 }
 
