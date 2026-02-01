@@ -1,5 +1,5 @@
 <?php
-$pageTitle = $pageTitle ?? "Client Files";
+$pageTitle = $pageTitle ?? "Production Asset Management";
 $isAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'];
 $isClient = isset($_SESSION['client_folder']);
 ?>
@@ -9,7 +9,7 @@ $isClient = isset($_SESSION['client_folder']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($pageTitle); ?> - Client Files</title>
+    <title><?php echo htmlspecialchars($pageTitle); ?> - Production Asset Management</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -20,23 +20,19 @@ $isClient = isset($_SESSION['client_folder']);
     <!-- Brand -->
     <div class="sidebar-brand">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-folder-open"></i>
+            <i class="fas fa-film"></i>
         </div>
-        <span class="sidebar-brand-text">Client Files</span>
+        <span class="sidebar-brand-text">Asset Portal</span>
     </div>
 
     <div class="menu">
         <h2>Menu</h2>
 
         <?php if (!$isAdmin && !$isClient): ?>
-            <!-- Show Login Buttons on Index Page -->
-            <a href="index.php?page=auth&type=client" class="btn">
-                <i class="fas fa-user"></i>
-                <span>Client Login</span>
-            </a>
-            <a href="index.php?page=auth&type=admin" class="btn">
-                <i class="fas fa-shield-halved"></i>
-                <span>Admin Login</span>
+            <!-- Landing page - just show home link -->
+            <a href="index.php" class="btn">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
             </a>
         <?php elseif ($isClient && !$isAdmin): ?>
             <!-- Client Sidebar -->
