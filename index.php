@@ -1,29 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Management System</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . "/config.php";
+require_once __DIR__ . "/models/SessionManager.php";
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="menu">
-            <h2>Navigation</h2>
-            <a href="auth.php?type=admin" class="btn">Admin Login</a>
-            <a href="auth.php?type=client" class="btn">Client Login</a>
-        </div>
-    </div>
+// Check if user is logged in
+$isAdmin = SessionManager::isAdminLoggedIn();
+$isClient = isset($_SESSION['client_folder']);
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1>Welcome to the File Management System</h1>
-        <p>This portal is proivded for our clients to upload any files needed for our project.</p>
-        <p>This way we can be sure we have the latest version of all files and that no files are missing.</p>
-        <p>You should have received a client code that you can use to login on the Client Login page. If you don't have that, please contact your project lead.</p>
-    </div>
+// Determine the page to load
+$page = $_GET['page'] ?? 'auth';
+$pageTitle = "Welcome";
 
-</body>
-</html>
+// Routing based on user role and requested page
+if ($isAdmin && ($page === 'auth' || $page === 'client_dashboard')) {
+    header("Location: index.php?page=admin_dashboard");
+    exit();
+} elseif ($isClient && ($page === 'auth' || $page === 'admin_dashboard')) {
+    header("Location: index.php?page=client_dashboard");
+    exit();
+}
+
+include "views/header.php"; // Load global header
+
+// Load the appropriate view
+switch ($page) {
+    case 'admin_dashboard':
+        if (!$isAdmin) {
+            header("Location: index.php?page=auth");
+            exit();
+        }
+        include "controllers/AdminController.php";
+        break;
+
+    case 'client_dashboard':
+        if (!$isClient) {
+            header("Location: index.php?page=auth");
+            exit();
+        }
+        include "controllers/ClientController.php";
+        break;
+
+    default:
+        include "controllers/AuthController.php"; // Default to login page
+        break;
+}
+
+include __DIR__ . "/views/footer.php";
+?>
