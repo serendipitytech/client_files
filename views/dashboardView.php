@@ -52,8 +52,8 @@ function getFileIcon($filename) {
     <div class="file-grid">
         <?php foreach ($files as $file):
             if (pathinfo($file, PATHINFO_EXTENSION) === 'json') continue;
-            $filePath = "../files/$clientFolder/$file";
-            $fileSize = file_exists($filePath) ? filesize($filePath) : 0;
+            $fileAbsPath = __DIR__ . "/../files/$clientFolder/$file";
+            $fileSize = file_exists($fileAbsPath) ? filesize($fileAbsPath) : 0;
         ?>
             <div class="file-card">
                 <div class="file-card-icon">
@@ -67,7 +67,7 @@ function getFileIcon($filename) {
                     </p>
                 <?php endif; ?>
                 <div class="file-card-actions">
-                    <a href="../files/<?php echo htmlspecialchars($clientFolder . '/' . $file); ?>" download class="btn btn-secondary" style="flex: 1; padding: var(--space-sm) var(--space-md);">
+                    <a href="files/<?php echo htmlspecialchars($clientFolder . '/' . $file); ?>" download class="btn btn-secondary" style="flex: 1; padding: var(--space-sm) var(--space-md);">
                         <i class="fas fa-download"></i>
                         Download
                     </a>

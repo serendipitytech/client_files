@@ -1,15 +1,15 @@
 <?php
 require_once __DIR__ . "/../models/SessionManager.php";
 
-// If no client is logged in, redirect to login
+// If no client folder is set, redirect to login
 if (!isset($_SESSION['client_folder'])) {
-    header("Location: ../index.php?page=auth&type=client");
+    header("Location: index.php?page=auth&type=client");
     exit();
 }
 
-// Get the client folder
+// Get the client folder - use __DIR__ for reliable path resolution
 $clientFolder = $_SESSION['client_folder'];
-$folderPath = "../files/$clientFolder";
+$folderPath = __DIR__ . "/../files/$clientFolder";
 $notesFilePath = "$folderPath/notes.json";
 
 // Retrieve files
