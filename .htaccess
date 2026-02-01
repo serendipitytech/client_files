@@ -1,21 +1,8 @@
-# PHP Upload Settings for Video/Media Files
-php_value upload_max_filesize 500M
-php_value post_max_size 512M
-php_value max_execution_time 300
-php_value max_input_time 300
-php_value memory_limit 256M
-
 # Prevent directory listing
 Options -Indexes
 
-# Protect sensitive files
-<FilesMatch "\.(json|log)$">
+# Protect sensitive files (json, log, ini)
+<FilesMatch "\.(json|log|ini)$">
     Order Allow,Deny
     Deny from all
 </FilesMatch>
-
-# Allow access to files directory for downloads
-<Directory "files">
-    Order Allow,Deny
-    Allow from all
-</Directory>
