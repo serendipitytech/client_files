@@ -19,61 +19,57 @@ $showLoginModal = isset($_GET['login']) && $_GET['login'] === 'true';
             <div class="landing-logo">
                 <i class="fas fa-film"></i>
             </div>
-            <h1 class="landing-title">Production Asset Management</h1>
-            <p class="landing-subtitle">Your centralized portal for event production files</p>
+            <div class="landing-hero-text">
+                <h1 class="landing-title">Production Asset Management</h1>
+                <p class="landing-subtitle">Your centralized portal for event production files</p>
+            </div>
         </div>
 
         <!-- Main Content Card -->
         <div class="landing-card">
-            <div class="landing-intro">
-                <p>
-                    Live event productions require precise coordination of digital assets—walk-in music,
-                    presentation decks, testimonial videos, and welcome montages. This portal eliminates
-                    version confusion and last-minute scrambles by providing a single, organized location
-                    for all your production files.
-                </p>
-            </div>
-
-            <div class="landing-features">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-cloud-arrow-up"></i>
-                    </div>
-                    <div class="feature-text">
-                        <h3>Easy Uploads</h3>
-                        <p>Submit audio, video, and presentation files directly to your event space</p>
-                    </div>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="feature-text">
-                        <h3>Review & Approval</h3>
-                        <p>Production staff reviews submissions and confirms final versions</p>
-                    </div>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock-rotate-left"></i>
-                    </div>
-                    <div class="feature-text">
-                        <h3>Version Control</h3>
-                        <p>Full history ensures everyone knows which version is show-ready</p>
+            <div class="landing-content">
+                <div class="landing-intro">
+                    <p>
+                        Eliminate version confusion and last-minute scrambles. Submit all your production
+                        files—walk-in music, presentations, videos—to one organized location for review and approval.
+                    </p>
+                    <div class="landing-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-cloud-arrow-up"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Easy Uploads</h3>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Review & Approval</h3>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock-rotate-left"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Version Control</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="landing-cta">
-                <button onclick="openLoginModal()" class="btn btn-large">
-                    <i class="fas fa-right-to-bracket"></i>
-                    Sign In to Your Portal
-                </button>
-                <p class="landing-help">
-                    Use your event code to access your files, or sign in as an administrator.
-                </p>
+                <div class="landing-cta">
+                    <button onclick="openLoginModal()" class="btn btn-large">
+                        <i class="fas fa-right-to-bracket"></i>
+                        Sign In
+                    </button>
+                    <p class="landing-help">
+                        Use your event code or admin credentials
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -179,11 +175,11 @@ $showLoginModal = isset($_GET['login']) && $_GET['login'] === 'true';
     </div>
 
     <style>
-        /* Landing Page Styles */
+        /* Landing Page Styles - Compact Horizontal Layout */
         body {
             justify-content: center;
             align-items: center;
-            padding: var(--space-xl);
+            padding: var(--space-lg);
         }
 
         body::before {
@@ -196,46 +192,49 @@ $showLoginModal = isset($_GET['login']) && $_GET['login'] === 'true';
 
         .landing-page {
             width: 100%;
-            max-width: 680px;
+            max-width: 960px;
             margin: 0 auto;
-            text-align: center;
-            animation: fadeInUp 0.6s var(--transition-bounce);
+            animation: fadeInUp 0.5s var(--transition-bounce);
         }
 
         .landing-hero {
-            margin-bottom: var(--space-2xl);
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
         }
 
         .landing-logo {
-            width: 100px;
-            height: 100px;
+            width: 64px;
+            height: 64px;
+            min-width: 64px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #5856d6 100%);
-            border-radius: var(--radius-xl);
+            border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto var(--space-xl);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
         }
 
         .landing-logo i {
-            font-size: 3rem;
+            font-size: 1.75rem;
             color: white;
         }
 
+        .landing-hero-text {
+            text-align: left;
+        }
+
         .landing-title {
-            font-size: 2.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: var(--space-sm);
-            background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: -0.02em;
+            margin-bottom: 2px;
+            color: var(--color-text-primary);
         }
 
         .landing-subtitle {
-            font-size: 1.25rem;
+            font-size: 1rem;
             color: var(--color-text-tertiary);
         }
 
@@ -243,86 +242,92 @@ $showLoginModal = isset($_GET['login']) && $_GET['login'] === 'true';
             background: var(--color-bg-secondary);
             border: 1px solid var(--color-border);
             border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            box-shadow: var(--shadow-md);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .landing-content {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: flex-start;
         }
 
         .landing-intro {
-            margin-bottom: var(--space-xl);
+            flex: 1;
         }
 
         .landing-intro p {
-            font-size: 1.0625rem;
-            line-height: 1.7;
+            font-size: 0.9375rem;
+            line-height: 1.6;
             color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
         }
 
         .landing-features {
             display: flex;
-            flex-direction: column;
             gap: var(--space-lg);
-            margin-bottom: var(--space-2xl);
-            padding: var(--space-xl) 0;
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
+            margin-top: var(--space-md);
         }
 
         .feature-item {
             display: flex;
-            align-items: flex-start;
-            gap: var(--space-md);
-            text-align: left;
+            align-items: center;
+            gap: var(--space-sm);
         }
 
         .feature-icon {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
             background: var(--color-accent-light);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .feature-icon i {
-            font-size: 1.25rem;
+            font-size: 0.875rem;
             color: var(--color-accent);
         }
 
         .feature-text h3 {
-            font-size: 1rem;
+            font-size: 0.8125rem;
             font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .feature-text p {
-            font-size: 0.9375rem;
-            color: var(--color-text-tertiary);
+            color: var(--color-text-primary);
             margin: 0;
         }
 
         .landing-cta {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-left: var(--space-xl);
+            border-left: 1px solid var(--color-border);
+            min-width: 200px;
         }
 
         .btn-large {
-            padding: var(--space-md) var(--space-2xl);
-            font-size: 1.0625rem;
+            padding: var(--space-md) var(--space-xl);
+            font-size: 0.9375rem;
+            white-space: nowrap;
         }
 
         .landing-help {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             color: var(--color-text-tertiary);
-            margin-top: var(--space-md);
+            margin-top: var(--space-sm);
+            text-align: center;
         }
 
         .landing-footer {
-            margin-top: var(--space-xl);
+            margin-top: var(--space-lg);
+            text-align: center;
         }
 
         .landing-footer p {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: var(--color-text-tertiary);
         }
 
@@ -372,23 +377,33 @@ $showLoginModal = isset($_GET['login']) && $_GET['login'] === 'true';
             font-size: 1rem;
         }
 
-        /* Responsive */
-        @media (max-width: 640px) {
-            .landing-title {
-                font-size: 1.75rem;
+        /* Responsive - stack on smaller screens */
+        @media (max-width: 768px) {
+            .landing-content {
+                flex-direction: column;
             }
 
-            .landing-card {
-                padding: var(--space-xl);
+            .landing-cta {
+                padding-left: 0;
+                padding-top: var(--space-lg);
+                border-left: none;
+                border-top: 1px solid var(--color-border);
+                width: 100%;
+                min-width: auto;
             }
 
-            .feature-item {
+            .landing-features {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .landing-hero {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .feature-icon {
-                margin: 0 auto;
+            .landing-hero-text {
+                text-align: center;
             }
         }
     </style>
