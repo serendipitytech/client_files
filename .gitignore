@@ -4,6 +4,11 @@ files/
 # Exclude the clients.json file
 clients.json
 
+# AI/Planning docs
+docs/ai/
+*.roadmap.md
+ROADMAP.md
+
 # Other common exclusions
 *.log
 *.tmp
